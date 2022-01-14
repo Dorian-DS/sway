@@ -1,0 +1,147 @@
+{
+    // Dorian's Waybar config January 13th 2022
+    //  This is the default config that I editied, and left most comments intact.
+    //  I've removed most things that I don't use.
+    //
+    // "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    //"height": 32, // Waybar height (to be removed for auto height)
+    //"width": 780, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "custom/firefox", "custom/fileman", "custom/vm"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["custom/leftend", "idle_inhibitor", "custom/spacer", "custom/logout", "custom/spacer", "pulseaudio", "custom/spacer", "network", "custom/spacer", "backlight", "custom/spacer", "disk", "custom/spacer", "tray", "custom/spacer", "battery", "battery#bat2", "custom/rightend", "clock"],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+    "custom/spacer": {
+        "format": " "
+    },
+    "custom/leftend": {
+        "format": " "
+    },
+    "custom/rightend": {
+        "format": " "
+    },
+    "custom/firefox": {
+         "format": "",
+         "on-click": "firefox",
+         "tooltip": false,
+         "icon-size": 32
+    },
+    "custom/fileman": {
+         "format": "",
+         "on-click": "thunar",
+         "tooltip": false,
+         "icon-size": 32
+    },
+    "custom/vm": {
+         "format": "",
+         "on-click": "virt-manager",
+         "tooltip": false,
+         "icon-size": 32
+    },
+    "custom/logout": {
+         "format": "",
+         "on-click": "wlogout",
+         "tooltip": false,
+         "icon-size": 32
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {icon} {capacity}%   {time}",
+        "format-charging": " {capacity}%",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " WiFi ({signalStrength}%)",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "disk": {
+                "interval": 30,
+                "on-click": "baobab",
+                "format": "{free}",
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-headphone": " {icon} ",
+        "format-headphone-muted": " MUTE",
+        "format-muted": " MUTE",
+        "format-source": "{volume}% ",
+        "format-source-muted": "MUTE",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
