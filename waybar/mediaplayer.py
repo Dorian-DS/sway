@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# I have edited this file to suit my theming.
+# If you want to run this on login, add an exec in your sway config to execute this script.
 import argparse
 import logging
 import sys
