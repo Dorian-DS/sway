@@ -1,4 +1,4 @@
-/* Dorian's style.css file for Waybar.  January 13 2022
+/* Dorian's style.css file for Waybar.  January 27th 2022
 This is a heavy edit of the original style.
 There's some hacky things done to padding for each item, but this was done so that
 icons line up nicely.  Might clean it up in the future but it works for now.*/
@@ -36,21 +36,11 @@ window#waybar.solo {
     background-color: #000000;
 }
 
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium-browser {
-    background-color: #000000;
-    border: none;
-}
-
 #workspaces button {
-    padding: 0 6px;
+    padding: 0 4px;
     border-radius: 2px;
     background-color: transparent;
-    padding: 4px;
+    /* padding: 4px; */
     color: #ffffff;
     /* Use box-shadow instead of border so the text isn't offset */
     /*box-shadow: inset 0 -3px transparent;*/
@@ -87,14 +77,10 @@ window#modules-right {
 
 #clock,
 #battery,
-#cpu,
-#memory,
 #disk,
-#temperature,
 #backlight,
 #network,
 #pulseaudio,
-#custom-media,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -102,8 +88,7 @@ window#modules-right {
 #custom-leftend,
 #custom-spacer,
 #custom-rightend,
-#spacer,
-#mpd {
+#spacer {
     /* padding: 0 10px; */
     margin: 0 0px;
     color: #ffffff;
@@ -134,12 +119,6 @@ label:focus {
     background-color: #000000;
 }
 
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
 #custom-firefox, #custom-fileman, #custom-vm {
   padding-top: 4px;
   padding-bottom: 4px;
@@ -151,7 +130,7 @@ label:focus {
 
 #custom-firefox {
   color: #fa881e;
-  padding-left: 6px;
+  padding-left: 8px;
   background-color: rgba(50, 50, 50, 0.8);
 }
 
@@ -166,8 +145,6 @@ label:focus {
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
   background-color: rgba(50, 50, 50, 0.8);
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
 }
 
 #custom-logout {
@@ -300,10 +277,11 @@ label:focus {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
+.custom-spotify {
+    padding: 0 10px;
+    margin: 0 0px;
+    background-color: #1DB954;
+    color: black;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
 }

@@ -1,5 +1,5 @@
 {
-    // Dorian's Waybar config January 13th 2022
+    // Dorian's Waybar config January 27th 2022
     //  This is the default config that I editied, and left most comments intact.
     //  I've removed most things that I don't use.
     //
@@ -8,7 +8,7 @@
     //"height": 32, // Waybar height (to be removed for auto height)
     //"width": 780, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "custom/firefox", "custom/fileman", "custom/vm"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/firefox", "custom/fileman", "custom/vm", "custom/spotify"],
     "modules-center": ["sway/window"],
     "modules-right": ["custom/leftend", "idle_inhibitor", "custom/spacer", "custom/logout", "custom/spacer", "pulseaudio", "custom/spacer", "network", "custom/spacer", "backlight", "custom/spacer", "disk", "custom/spacer", "tray", "custom/spacer", "battery", "battery#bat2", "custom/rightend", "clock"],
     // Modules configuration
@@ -85,7 +85,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
     "backlight": {
@@ -143,5 +143,13 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/spotify": {
+    	"exec": "/usr/bin/python3 /home/dorian/.config/waybar/mediaplayer.py --player spotify",
+    	"format": "{}  ",
+    	"return-type": "json",
+    	"on-click": "playerctl play-pause",
+    	"on-scroll-up": "playerctl next",
+    	"on-scroll-down": "playerctl previous"
     }
 }
