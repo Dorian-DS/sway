@@ -3,8 +3,9 @@
 #
 # I've kept most of the basics from the original config and added my own stuff.
 # A few packages are needed for this config, or, you can edit it to suit your
-#  own system. Terminal is sakura, and the script uses ulauncher, oguri,
-#  swayblur, lxpolkit, thunar and nm-applet.
+#  own system. Terminal is foot, and this config uses wofi, oguri, swayblur,
+#  lxpolkit, wlogout, grimshot, thunar and nm-applet.
+# Remove what you don't need or change it.
 
 ### Variables
 #
@@ -18,7 +19,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term sakura
+set $term foot
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -29,11 +30,14 @@ set $term sakura
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 
+# DISABLED below because it is set in the oguri config file
 # output * bg /home/dorian/Pictures/Wallpapers/low_poly.png fill
 
-# Example configuration:
+# Screen configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+# !!! You should probably comment these out or change them to suit your system !!!
+output eDP-1 resolution 1920x1080 position 0,0
+output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -63,6 +67,11 @@ set $term sakura
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+#
+# Enable tap-to-click for touchpad
+input 1267:12596:ASUE140A:00_04F3:3134_Touchpad {
+    tap enabled
+}
 
 ### Key bindings
 #
@@ -76,7 +85,8 @@ set $term sakura
 
     # Start your launcher
     # bindsym $mod+d exec $menu
-    bindsym $mod+d exec ulauncher
+    bindsym $mod+d exec wofi -IG --show drun -W 400
+    # bindsym $mod+d exec ulauncher
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -145,6 +155,7 @@ set $term sakura
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    bindsym $mod+Alt+3 move container to workspace number 3; workspace number 3
 #
 # Layout stuff:
 #
@@ -215,7 +226,7 @@ bar {
   swaybar_command waybar
 }
 
-# Screen Brightness Control
+# Screen Brightness Control (install the light package if needed)
 bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
@@ -224,7 +235,7 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 1%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 1%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
-# Take screenshot
+# Take screenshot with grimshot
 bindsym $mod+Shift+s exec grimshot save
 
 # Reduce borders and remove titlebar
@@ -237,6 +248,7 @@ gaps inner 14
 smart_gaps on
 
 # Start oguri, required for swayblur
+# Config should be ~/.config/orugi/config
 exec --no-startup-id oguri
 
 # Start network manager applet (helps reconnect to WiFi after resume)
@@ -251,19 +263,17 @@ client.unfocused #124dff #124dff #124dff
 
 include /etc/sway/config.d/*
 
-# Do not show border around ulauncher window
-for_window [app_id="ulauncher"] border none
-
 # Make Thunar floating when opened
 for_window [app_id="thunar"] floating enabled
 
-# Enable tap-to-click for touchpad
-input 1267:12596:ASUE140A:00_04F3:3134_Touchpad {
-    tap enabled
-}
+# Make Firefox PiP floating
+for_window [title="Picture-in-Picture"] floating enabled
 
-# Start swayblur
-exec /home/dorian/.local/bin/swayblur -a 2 -b 5
+# Start swayblur (4 sec animation, blur strength 5)
+exec /home/dorian/.local/bin/swayblur -a 4 -b 5
 
 # Set icon theme to papirus-remix
 exec_always gsettings set org.gnome.desktop.interface icon-theme 'papirus-remix'
+
+# Start stacking
+exec_always stacki3
