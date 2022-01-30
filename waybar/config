@@ -8,9 +8,9 @@
     //"height": 32, // Waybar height (to be removed for auto height)
     //"width": 780, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/firefox", "custom/fileman", "custom/vm", "custom/spotify"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/firefox", "custom/fileman", "custom/vm", "custom/spotifyapp", "custom/spotify"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/leftend", "idle_inhibitor", "custom/spacer", "custom/logout", "custom/spacer", "pulseaudio", "custom/spacer", "network", "custom/spacer", "backlight", "custom/spacer", "disk", "custom/spacer", "tray", "custom/spacer", "battery", "battery#bat2", "custom/rightend", "clock"],
+    "modules-right": ["custom/leftend", "idle_inhibitor", "custom/spacer", "custom/logout", "custom/spacer", "pulseaudio", "custom/spacer", "network", "custom/spacer", "backlight", "custom/spacer", "disk", "custom/spacer", "tray", "custom/spacer", "battery","custom/spacer", "custom/mouse", "custom/rightend", "clock"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -59,6 +59,17 @@
          "on-click": "wlogout",
          "tooltip": false,
          "icon-size": 32
+    },
+    "custom/spotifyapp": {
+         "format": "",
+         "on-click": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=spotify --file-forwarding com.spotify.Client @@u %U @@",
+         "tooltip": false,
+         "icon-size": 32
+    },
+    "custom/mouse": {
+        "exec": "~/.config/waybar/scripts/getmouse.sh",
+        "format": " {}%",
+        "restart-interval": 60,
     },
     "keyboard-state": {
         "numlock": true,
@@ -128,13 +139,13 @@
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}% {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-headphone": " {icon} ",
-        "format-headphone-muted": " MUTE",
+        //"format-headphone": " {icon} ",
+        //"format-headphone-muted": " MUTE",
         "format-muted": " MUTE",
         "format-source": "{volume}% ",
         "format-source-muted": "MUTE",
         "format-icons": {
-            "headphone": "",
+            //"headphone": "",
             "hands-free": "",
             "headset": "",
             "phone": "",

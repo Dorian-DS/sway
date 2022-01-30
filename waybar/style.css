@@ -10,7 +10,7 @@ icons line up nicely.  Might clean it up in the future but it works for now.*/
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Roboto, Helvetica, Arial;
+    font-family: Roboto, Helvetica, Arial, "Font Awesome 5 Free";
     font-size: 14px;
     font-weight: bold;
     min-height: 0;
@@ -77,6 +77,7 @@ window#modules-right {
 
 #clock,
 #battery,
+#custom-mouse,
 #disk,
 #backlight,
 #network,
@@ -85,6 +86,7 @@ window#modules-right {
 #mode,
 #idle_inhibitor,
 #custom-logout,
+#custom-spotifyapp,
 #custom-leftend,
 #custom-spacer,
 #custom-rightend,
@@ -119,7 +121,7 @@ label:focus {
     background-color: #000000;
 }
 
-#custom-firefox, #custom-fileman, #custom-vm {
+#custom-firefox, #custom-fileman, #custom-vm, #custom-spotifyapp {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-right: 8px;
@@ -141,9 +143,15 @@ label:focus {
 
 #custom-vm {
   color: #1efaed;
+  background-color: rgba(50, 50, 50, 0.8);
+}
+
+#custom-spotifyapp {
+  color: #00c608;
   padding-right: 12px;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  padding-right: 12px;
   background-color: rgba(50, 50, 50, 0.8);
 }
 
@@ -236,6 +244,11 @@ label:focus {
     border-bottom: 1px solid #34ff88;
 }
 
+#custom-mouse {
+  color: #ffffff;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
 @keyframes blink {
     to {
         background-color: #ffffff;
@@ -279,9 +292,9 @@ label:focus {
 
 .custom-spotify {
     padding: 0 10px;
-    margin: 0 0px;
+    margin: 0 5px;
+    font-size: 18px;
     background-color: #1DB954;
     color: black;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-radius: 7px;
 }
