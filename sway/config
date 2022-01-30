@@ -1,5 +1,5 @@
 # Dorian's config
-# January 27th 2022
+# January 29th 2022
 #
 # I've kept most of the basics from the original config and added my own stuff.
 # A few packages are needed for this config, or, you can edit it to suit your
@@ -276,4 +276,7 @@ exec /home/dorian/.local/bin/swayblur -a 4 -b 5
 exec_always gsettings set org.gnome.desktop.interface icon-theme 'papirus-remix'
 
 # Start stacking
-exec_always stacki3
+exec_always --no-startup-id stacki3
+
+# Start mako
+exec_always mako
