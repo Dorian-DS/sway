@@ -1,5 +1,7 @@
 # My setup
 
+![2022-01-29T21:08:47,479376976-07:00](https://user-images.githubusercontent.com/37633664/151686268-e2220816-1af7-4cb7-97f6-4bddbe6fc32c.png)
+
 These are my dotfiles for sway and waybar.  They go under ~/.config
 
 I've added comments in each file for everything so you can tell what to change or remove to suit your needs.
